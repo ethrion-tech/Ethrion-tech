@@ -1,102 +1,73 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ETHRION — vFX i18n</title>
-<link rel="stylesheet" href="/style.css">
-<script src="/script.js" defer></script>
-<script src="/lang.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ETHRION — 인간과 AI의 공진화</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+  <script src="/lang.js" defer></script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="brand">ETHRION</div>
-  <nav>
-    <a href="#hero" class="navlink" data-i18n="nav.home">Home</a>
-    <a href="#why" class="navlink" data-i18n="nav.why">Why</a>
-    <a href="#lq" class="navlink" data-i18n="nav.lq">LQ</a>
-    <a href="#offer" class="navlink" data-i18n="nav.offer">Offer</a>
-    <select id="langSel" aria-label="Language">
-      <option value="ko">한국어</option>
-      <option value="en">English</option>
-      <option value="ja">日本語</option>
-    </select>
-  </nav>
-</header>
+  <header class="site-header">
+    <div class="brand">ETHRION</div>
+    <nav>
+      <a href="#hero" class="navlink" data-i18n="nav.home">Home</a>
+      <a href="#why" class="navlink" data-i18n="nav.why">Why</a>
+      <a href="#lq" class="navlink" data-i18n="nav.lq">LQ</a>
+      <a href="#offer" class="navlink" data-i18n="nav.offer">Offer</a>
+      <select id="langSel" aria-label="Language">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+        <option value="es">Español</option>
+        <option value="th">ไทย</option>
+      </select>
+    </nav>
+  </header>
 
-<main id="main">
-  <section id="hero" class="hero reveal">
-    <div class="hero-inner">
-      <h1 data-i18n="hero.title">ETHRION — 인간과 AI의 공진화</h1>
-      <p class="subtitle" data-i18n="hero.subtitle">네온 플로우 · 공진화 오브 · 펄스 그리드</p>
-      <div class="cta-row">
-        <a href="#offer" class="btn primary cta glow" data-i18n="cta.start">지금 시작하기</a>
-        <a href="#why" class="btn ghost glow" data-i18n="cta.read">철학 읽기</a>
+  <main id="main">
+    <section id="hero" class="hero reveal">
+      <div class="hero-inner">
+        <h1 data-i18n="hero.title">ETHRION — 인간과 AI의 공진화</h1>
+        <p class="subtitle" data-i18n="hero.subtitle">
+          아이디어가 실행으로 전환되는 가장 짧은 루트
+        </p>
+        <div class="cta-row">
+          <a href="#offer" class="btn primary" data-i18n="hero.ctaStart">지금 시작하기</a>
+          <a href="#why" class="btn ghost" data-i18n="hero.ctaRead">철학 읽기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="why" class="section reveal">
-    <div class="container">
+    <section id="why" class="section">
       <h2 data-i18n="why.title">왜 공진화인가</h2>
-      <div class="cols">
-        <div class="card"><h3 data-i18n="why.card1.t">문제정의</h3><p data-i18n="why.card1.d">현상→원인→가치의 3단 분해로 정확히 설계.</p></div>
-        <div class="card"><h3 data-i18n="why.card2.t">실험·학습</h3><p data-i18n="why.card2.d">작게 실험, 크게 학습. 데이터와 감정의 균형.</p></div>
-        <div class="card"><h3 data-i18n="why.card3.t">지표화</h3><p data-i18n="why.card3.d">LQ 8축과 행동지표로 변화를 수치화.</p></div>
-      </div>
-    </div>
-  </section>
+      <p data-i18n="why.text">
+        인간의 맥락·가치 판단과 AI의 연산·자동화를 상호 증폭시켜 결과를 가속합니다.
+      </p>
+    </section>
 
-  <section id="lq" class="section reveal">
-    <div class="container">
-      <h2 data-i18n="lq.title">LQ 8축 레이더</h2>
-      <div class="lq-wrap">
-        <canvas id="radar" width="520" height="520" role="img" aria-label="LQ Radar"></canvas>
-        <div class="lq-side">
-          <p class="lede" data-i18n="lq.lede">Cognitive · Emotional · Creative · Strategic · Ethical · Systemic · Self‑Insight · Resilience</p>
-          <div class="btn-row">
-            <button id="rnd" class="btn small glow" data-i18n="lq.random">랜덤 샘플</button>
-            <button id="exp" class="btn small glow" data-i18n="lq.export">JSON 내보내기</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="lq" class="section">
+      <h2 data-i18n="lq.title">LQ 자기성장 지표</h2>
+      <p data-i18n="lq.text">
+        인지/정서/창의/전략/윤리/시스템/자성/회복력 8축 레이더와 추세 리포트.
+      </p>
+    </section>
 
-  <section id="offer" class="section reveal">
-    <div class="container">
+    <section id="offer" class="section">
       <h2 data-i18n="offer.title">제공</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3 data-i18n="offer.seed.t">Seed</h3><p class="price" data-i18n="offer.seed.p">₩0.49M</p>
-          <ul><li data-i18n="offer.seed.l1">브랜드·웹 초안</li><li data-i18n="offer.seed.l2">히어로·섹션 카피</li></ul>
-          <a class="btn primary glow" href="#contact" data-i18n="cta.start">지금 시작하기</a>
-        </div>
-        <div class="price-card featured">
-          <h3 data-i18n="offer.core.t">Core</h3><p class="price" data-i18n="offer.core.p">₩1.4M</p>
-          <ul><li data-i18n="offer.core.l1">콘텐츠 캘린더</li><li data-i18n="offer.core.l2">LQ Quick Assess</li></ul>
-          <a class="btn primary glow" href="#contact" data-i18n="cta.start">지금 시작하기</a>
-        </div>
-        <div class="price-card">
-          <h3 data-i18n="offer.pro.t">Pro</h3><p class="price" data-i18n="offer.pro.p">맞춤</p>
-          <ul><li data-i18n="offer.pro.l1">대시보드·자동화</li><li data-i18n="offer.pro.l2">브랜드북</li></ul>
-          <a class="btn ghost glow" href="#contact" data-i18n="cta.read">철학 읽기</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <ul>
+        <li data-i18n="offer.item1">브랜드·웹 초안 자동화</li>
+        <li data-i18n="offer.item2">교육·코칭 콘텐츠 설계</li>
+        <li data-i18n="offer.item3">지표·리포트</li>
+      </ul>
+    </section>
+  </main>
 
-  <section id="contact" class="section reveal">
-    <div class="container">
-      <h2 data-i18n="contact.title">연락</h2>
-      <form class="contact-form" onsubmit="event.preventDefault();alert('Done!');">
-        <input required data-i18n-placeholder="contact.name" placeholder="이름">
-        <input required type="email" data-i18n-placeholder="contact.email" placeholder="이메일">
-        <textarea rows="4" data-i18n-placeholder="contact.note" placeholder="요청 사항"></textarea>
-        <button class="btn primary glow" data-i18n="contact.send">보내기</button>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer class="footer"><div class="container"><span data-i18n="footer.c">© 2025 ETHRION</span></div></footer>
-</body></html>
+  <footer>
+    <p>© ETHRION 2025</p>
+  </footer>
+</body>
+</html>
