@@ -1,0 +1,11 @@
+body{margin:0;font-family:-apple-system,Roboto,sans-serif;background:#0a0a0d;color:#fff;overflow-x:hidden}
+header,footer{padding:1em 2em;display:flex;justify-content:space-between;align-items:center;background:#0e0e14}
+nav a{color:#a8a8ff;margin:0 0.6em;text-decoration:none}nav a:hover{text-decoration:underline}
+section{padding:4em 2em;max-width:900px;margin:auto}h1,h2{color:#d0c8ff}p{line-height:1.6}
+.btn{background:#a78bfa;color:#fff;padding:0.7em 1.4em;border-radius:4px;text-decoration:none}
+.btn:hover{background:#8b5cf6}
+.hero{text-align:center;padding:8em 2em;background:radial-gradient(circle at 50% 20%,#1e1b4b,#0a0a0d)}
+footer span{font-size:0.85em;color:#aaa}
+.reveal{opacity:0;transform:translateY(20px);transition:all .6s ease-out}
+.reveal.visible{opacity:1;transform:none}
+canvas{display:block;margin:auto}
