@@ -1,0 +1,38 @@
+name: Deploy ETHRION V3
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Backup current files
+        run: |
+          mkdir -p backup
+          cp -r * backup/ || true
+          echo "Backup completed."
+
+      - name: Extract ETHRION V3 bundle
+        run: |
+          unzip -o "ETHRION_v3.4_AllInOne.zip" -d extracted/
+          echo "Unzip completed."
+
+      - name: Sync files to root
+        run: |
+          rsync -av extracted/ ./
+          echo "Files synced to root directory."
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto-deploy ETHRION V3"
+          git push origin main
