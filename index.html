@@ -1,15 +1,24 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ETHRION — 인간과 AI의 공진화</title>
+  <title>ETHRION — Human × AI Co‑evolution</title>
+  <meta name="description" content="ETHRION — Human × AI Co‑evolution studio">
+  <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
-  <script src="/script.js" defer></script>
+  <meta property="og:title" content="ETHRION — Human × AI Co‑evolution">
+  <meta property="og:description" content="Neon Flow · Co‑evolution Orb · Pulse Grid">
+  <meta property="og:image" content="/og.png">
   <script src="/lang.js" defer></script>
+  <script src="/script.js" defer></script>
 </head>
-
 <body>
+  <!-- CANVAS LAYERS (graphics) -->
+  <canvas id="bg" class="layer"></canvas>
+  <canvas id="orb" class="layer"></canvas>
+  <canvas id="grid" class="layer"></canvas>
+
   <header class="site-header">
     <div class="brand">ETHRION</div>
     <nav>
@@ -17,9 +26,10 @@
       <a href="#why" class="navlink" data-i18n="nav.why">Why</a>
       <a href="#lq" class="navlink" data-i18n="nav.lq">LQ</a>
       <a href="#offer" class="navlink" data-i18n="nav.offer">Offer</a>
+      <a href="#contact" class="navlink" data-i18n="nav.contact">Contact</a>
       <select id="langSel" aria-label="Language">
-        <option value="ko">한국어</option>
         <option value="en">English</option>
+        <option value="ko">한국어</option>
         <option value="ja">日本語</option>
         <option value="zh">中文</option>
         <option value="es">Español</option>
@@ -29,45 +39,108 @@
   </header>
 
   <main id="main">
+    <!-- HERO -->
     <section id="hero" class="hero reveal">
-      <div class="hero-inner">
-        <h1 data-i18n="hero.title">ETHRION — 인간과 AI의 공진화</h1>
+      <div class="hero-inner glass">
+        <h1 data-i18n="hero.title">ETHRION — Human × AI Co‑evolution</h1>
         <p class="subtitle" data-i18n="hero.subtitle">
-          아이디어가 실행으로 전환되는 가장 짧은 루트
+          Neon Flow · Co‑evolution Orb · Pulse Grid
         </p>
         <div class="cta-row">
-          <a href="#offer" class="btn primary" data-i18n="hero.ctaStart">지금 시작하기</a>
-          <a href="#why" class="btn ghost" data-i18n="hero.ctaRead">철학 읽기</a>
+          <a href="#offer" class="btn primary glow" data-i18n="cta.start">Get Started</a>
+          <a href="#why" class="btn ghost glow" data-i18n="cta.read">Read Philosophy</a>
         </div>
       </div>
     </section>
 
-    <section id="why" class="section">
-      <h2 data-i18n="why.title">왜 공진화인가</h2>
-      <p data-i18n="why.text">
-        인간의 맥락·가치 판단과 AI의 연산·자동화를 상호 증폭시켜 결과를 가속합니다.
-      </p>
+    <!-- WHY -->
+    <section id="why" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="why.title">Why Co‑evolution</h2>
+        <div class="cols">
+          <div class="card">
+            <h3 data-i18n="why.card1.t">Problem Framing</h3>
+            <p data-i18n="why.card1.d">Decompose phenomenon → cause → value in 3 steps.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="why.card2.t">Experiment & Learn</h3>
+            <p data-i18n="why.card2.d">Small experiments, big learning. Balance data and emotion.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="why.card3.t">Make it Measurable</h3>
+            <p data-i18n="why.card3.d">Quantify change via LQ 8‑axis and behavior metrics.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="lq" class="section">
-      <h2 data-i18n="lq.title">LQ 자기성장 지표</h2>
-      <p data-i18n="lq.text">
-        인지/정서/창의/전략/윤리/시스템/자성/회복력 8축 레이더와 추세 리포트.
-      </p>
+    <!-- LQ -->
+    <section id="lq" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="lq.title">LQ 8‑Axis Radar</h2>
+        <p class="lede" data-i18n="lq.lede">Cognitive · Emotional · Creative · Strategic · Ethical · Systemic · Self‑Insight · Resilience</p>
+        <div class="lq-wrap">
+          <canvas id="radar" width="520" height="520" role="img" aria-label="LQ Radar"></canvas>
+          <div class="lq-side">
+            <div class="grid2">
+              <label>1 Cognitive <input name="c0" type="number" min="0" max="100" value="70"></label>
+              <label>2 Emotional <input name="c1" type="number" min="0" max="100" value="68"></label>
+              <label>3 Creative <input name="c2" type="number" min="0" max="100" value="72"></label>
+              <label>4 Strategic <input name="c3" type="number" min="0" max="100" value="66"></label>
+              <label>5 Ethical <input name="c4" type="number" min="0" max="100" value="74"></label>
+              <label>6 Systemic <input name="c5" type="number" min="0" max="100" value="71"></label>
+              <label>7 Self‑Insight <input name="c6" type="number" min="0" max="100" value="69"></label>
+              <label>8 Resilience <input name="c7" type="number" min="0" max="100" value="73"></label>
+            </div>
+            <div class="btn-row">
+              <button id="rnd" class="btn small glow" data-i18n="lq.random">Random Sample</button>
+              <button id="exp" class="btn small glow" data-i18n="lq.export">Export JSON</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="offer" class="section">
-      <h2 data-i18n="offer.title">제공</h2>
-      <ul>
-        <li data-i18n="offer.item1">브랜드·웹 초안 자동화</li>
-        <li data-i18n="offer.item2">교육·코칭 콘텐츠 설계</li>
-        <li data-i18n="offer.item3">지표·리포트</li>
-      </ul>
+    <!-- OFFER -->
+    <section id="offer" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="offer.title">Offerings</h2>
+        <div class="pricing">
+          <div class="price-card">
+            <h3 data-i18n="offer.seed.t">Seed</h3><p class="price" data-i18n="offer.seed.p">₩0.49M</p>
+            <ul><li data-i18n="offer.seed.l1">Brand/Web draft</li><li data-i18n="offer.seed.l2">Hero/Section copy</li></ul>
+            <a class="btn primary glow" href="#contact" data-i18n="cta.start">Get Started</a>
+          </div>
+          <div class="price-card featured">
+            <h3 data-i18n="offer.core.t">Core</h3><p class="price" data-i18n="offer.core.p">₩1.4M</p>
+            <ul><li data-i18n="offer.core.l1">Content calendar</li><li data-i18n="offer.core.l2">LQ Quick Assess</li></ul>
+            <a class="btn primary glow" href="#contact" data-i18n="cta.start">Get Started</a>
+          </div>
+          <div class="price-card">
+            <h3 data-i18n="offer.pro.t">Pro</h3><p class="price" data-i18n="offer.pro.p">Custom</p>
+            <ul><li data-i18n="offer.pro.l1">Dashboard/Automation</li><li data-i18n="offer.pro.l2">Brand book</li></ul>
+            <a class="btn ghost glow" href="#contact" data-i18n="cta.read">Read Philosophy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="contact.title">Contact</h2>
+        <form class="contact-form" onsubmit="event.preventDefault();alert('Done!')">
+          <input required data-i18n-placeholder="contact.name" placeholder="Name">
+          <input required type="email" data-i18n-placeholder="contact.email" placeholder="Email">
+          <textarea rows="4" data-i18n-placeholder="contact.note" placeholder="Notes"></textarea>
+          <button class="btn primary glow" data-i18n="contact.send">Send</button>
+        </form>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© ETHRION 2025</p>
+  <footer class="footer">
+    <div class="container"><span data-i18n="footer.c">© 2025 ETHRION</span></div>
   </footer>
 </body>
 </html>
