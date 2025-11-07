@@ -1,28 +1,32 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ETHRION — Insights</title>
-<link rel="stylesheet" href="style.css">
-<script src="lang.js" defer></script>
-<script src="script.js" defer></script>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta property="og:image" content="assets/icons/og-1200x630.png">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/i18n.js" defer></script>
+<script src="js/checklist.js" defer></script>
+
 </head><body>
-<canvas id="bg" class="layer"></canvas><canvas id="orb" class="layer"></canvas><canvas id="grid" class="layer"></canvas>
-<header class="site-header"><div class="brand">ETHRION</div><nav>
-  <a href="index.html" class="navlink" data-i18n="nav.home">Home</a>
-  <a href="about.html" class="navlink" data-i18n="nav.about">About</a>
-  <a href="lab.html" class="navlink" data-i18n="nav.lab">Lab</a>
-  <a href="projects.html" class="navlink" data-i18n="nav.projects">Projects</a>
-  <a href="insights.html" class="navlink" data-i18n="nav.insights">Insights</a>
-  <a href="connect.html" class="navlink" data-i18n="nav.connect">Connect</a>
-  <select id="langSel" aria-label="Language">
-    <option value="en">EN</option><option value="ko">KO</option><option value="ja">JP</option>
-    <option value="zh">ZH</option><option value="es">ES</option><option value="th">TH</option>
-  </select>
-</nav></header>
-
-<main class="section reveal"><div class="container">
-  <h1 data-i18n="insights.title">Insights</h1>
-  <p data-i18n="insights.desc">Articles, Reports, Data Stories</p>
-</div></main>
-
-<footer class="footer"><div class="container"><span data-i18n="footer.c">© 2025 ETHRION</span></div></footer>
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo"><img src="assets/logo/ethrion_dark.svg" alt="ETHRION" width="140"></a>
+    <nav>
+      <a href="index.html" class="navlink" data-i18n="nav.home">Home</a>
+      <a href="rooms.html" class="navlink" data-i18n="nav.rooms">Rooms</a>
+      <a href="about.html" class="navlink" data-i18n="nav.about">About</a>
+      <a href="lab.html" class="navlink" data-i18n="nav.lab">Lab</a>
+      <a href="projects.html" class="navlink" data-i18n="nav.projects">Projects</a>
+      <a href="insights.html" class="navlink" data-i18n="nav.insights">Insights</a>
+      <a href="connect.html" class="navlink" data-i18n="nav.connect">Contact</a>
+      <a href="lumien.html" class="navlink" data-i18n="nav.lumien">Lumien</a>
+      <a href="aion.html" class="navlink" data-i18n="nav.aion">AION</a>
+      <select id="langSel"><option value="en">EN</option><option value="ko">KO</option></select>
+    </nav>
+  </div>
+</header>
+<section class='section'><div class='container'><h1>Insights</h1></div></section>
+<footer class="footer"><div class="container">© 2025 ETHRION</div></footer>
 </body></html>
