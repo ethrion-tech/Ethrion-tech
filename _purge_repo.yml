@@ -1,0 +1,19 @@
+name: purge-repo
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove all files
+        run: |
+          find . -mindepth 1 -not -path "./.git/*" -not -path "./.github/*" -exec rm -rf {} +
+      - name: Commit deletion
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "."
+          message: "💥 Purge repo (reset all files)"
+          remove: "."
