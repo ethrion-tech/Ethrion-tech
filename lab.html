@@ -1,1 +1,47 @@
-<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title data-i18n='room.lab'>ETHRION</title><link rel='stylesheet' href='/style.css'><script src='/script.js' defer></script><script src='/lang.js' defer></script></head><body><header class='site-header'><div class='brand'>ETHRION</div><nav><a href='/index.html' class='navlink' data-i18n='nav.home'>Home</a><select id='langSel' aria-label='Language'><option value='ko'>한국어</option><option value='en'>English</option><option value='ja'>日本語</option></select></nav></header><main class='section'><div class='container'><h1 data-i18n='room.lab'>ETHRION</h1><p>Content coming here.</p></div></main><footer class='footer'><div class='container'><span data-i18n='footer.c'>© 2025 ETHRION</span></div></footer></body></html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETHRION — Lab</title>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js" defer></script>
+<script src="script.js" defer></script>
+</head><body>
+<canvas id="bg" class="layer"></canvas><canvas id="orb" class="layer"></canvas><canvas id="grid" class="layer"></canvas>
+<header class="site-header"><div class="brand">ETHRION</div><nav>
+  <a href="index.html" class="navlink" data-i18n="nav.home">Home</a>
+  <a href="about.html" class="navlink" data-i18n="nav.about">About</a>
+  <a href="lab.html" class="navlink" data-i18n="nav.lab">Lab</a>
+  <a href="projects.html" class="navlink" data-i18n="nav.projects">Projects</a>
+  <a href="insights.html" class="navlink" data-i18n="nav.insights">Insights</a>
+  <a href="connect.html" class="navlink" data-i18n="nav.connect">Connect</a>
+  <select id="langSel" aria-label="Language">
+    <option value="en">EN</option><option value="ko">KO</option><option value="ja">JP</option>
+    <option value="zh">ZH</option><option value="es">ES</option><option value="th">TH</option>
+  </select>
+</nav></header>
+
+<main class="section reveal"><div class="container">
+  <h1 data-i18n="lab.title">ETHRION Lab</h1>
+  <p class="lede" data-i18n="lab.desc">LQ Simulator, L2 Bias Correction, AI Partner Index, BGC Viewer</p>
+  <div class="lq-wrap">
+    <canvas id="radar" width="520" height="520" role="img" aria-label="LQ Radar"></canvas>
+    <div class="lq-side">
+      <div class="grid2">
+        <label>1 Cognitive <input name="c0" type="number" min="0" max="100" value="70"></label>
+        <label>2 Emotional <input name="c1" type="number" min="0" max="100" value="68"></label>
+        <label>3 Creative <input name="c2" type="number" min="0" max="100" value="72"></label>
+        <label>4 Strategic <input name="c3" type="number" min="0" max="100" value="66"></label>
+        <label>5 Ethical <input name="c4" type="number" min="0" max="100" value="74"></label>
+        <label>6 Systemic <input name="c5" type="number" min="0" max="100" value="71"></label>
+        <label>7 Self‑Insight <input name="c6" type="number" min="0" max="100" value="69"></label>
+        <label>8 Resilience <input name="c7" type="number" min="0" max="100" value="73"></label>
+      </div>
+      <div class="btn-row" style="margin-top:8px">
+        <button id="rnd" class="btn small glow" data-i18n="lq.random">Random Sample</button>
+        <button id="exp" class="btn small glow" data-i18n="lq.export">Export JSON</button>
+      </div>
+    </div>
+  </div>
+</div></main>
+
+<footer class="footer"><div class="container"><span data-i18n="footer.c">© 2025 ETHRION</span></div></footer>
+</body></html>
