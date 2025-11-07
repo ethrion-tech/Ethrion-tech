@@ -1,0 +1,39 @@
+name: Force Purge All
+
+on:
+  push:
+    paths:
+      - "__PURGE_ALL_FORCE.yml"
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Remove everything except this workflow
+        run: |
+          shopt -s dotglob
+          for item in * .*; do
+            if [ "$item" != "." ] && [ "$item" != ".." ] && [ "$item" != ".github" ] && [ "$item" != "__PURGE_ALL_FORCE.yml" ]; then
+              rm -rf "$item"
+            fi
+          done
+
+      - name: Purge inside .github except workflows
+        run: |
+          if [ -d ".github" ]; then
+            find .github -mindepth 1 -maxdepth 1 ! -name "workflows" -exec rm -rf {} \;
+          fi
+
+      - name: Commit purge changes
+        run: |
+          git config --global user.name "ethrion-tech"
+          git config --global user.email "ethrion@ethrion.tech"
+          git add -A
+          git commit -m "Force PURGE: repository fully cleaned" || echo "Nothing to commit"
+
+      - name: Push changes
+        run: |
+          git push
